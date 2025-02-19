@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      a {
+        color: orangered;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "poppins", sans-serif;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: #080808;
+        color: #fff;
+        /* height: 100vh;
+          width: 100%;
+          background-image: url("/personal_portfolio/image/pic_files/picture6.jpeg");
+          background-size: cover;
+          background-position: center; */
+      }
+      #header {
+        width: 100%;
+        height: 100vh;
+        background-image: url("/personal_portfolio/image/pic_files/picture3.jpeg");
+        background-size: cover;
+        background-position: center;
+      }
+      .contain {
+        background-color: black;
+      }
+      .container {
+        padding: 10px 10%;
+        /* color: rgb(237, 233, 233);
+          font-size: large;
+          height: 5%;
+          width: 100%; */
+        /* background-color: #080808; */
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        /* padding-left: 60%; */
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      .logo {
+        width: 70px;
+      }
+      nav ul li {
+        display: inline-block;
+        list-style: none;
+        margin: 10px 20px;
+      }
+      nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+        position: relative;
+      }
+      
+      .header-text {
+        margin-top: 20%;
+        font-size: 30px;
+      }
+      .header-text h3 {
+        font-size: 60px;
+        margin-top: 20px;
+        font-style: italic;
+      }
+      .header-text h3 span {
+        color: orangered;
+        font-style: italic;
+      }
+      /* ---------------------------------------about------------------------------------------------------ */
+      #about {
+        padding: 80px 0;
+        color: #ababab;
+      }
+      .row {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      .about-col-1 {
+        flex-basis: 35%;
+      }
+      .about-col-1 img {
+        width: 100%;
+        border-radius: 15px;
+      }
+      .about-col-2 {
+        flex-basis: 60%;
+      }
+      .sub-title {
+        font-size: 60px;
+        font-weight: 600;
+        color: #fff;
+        font-style: italic;
+      }
+      .tab-titles {
+        display: flex;
+        margin: 20px 0 40px;
+      }
+      .tab-links {
+        margin-right: 50px;
+        font-size: 18px;
+        font-weight: 500;
+        cursor: pointer;
+        position: relative;
+      }
+      .tab-links::after {
+        content: "";
+        width: 0;
+        height: 3px;
+        background: orangered;
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        transition: 0.5s;
+      }
+      .tab-links.active-link::after {
+        width: 50%;
+      }
+      .tab-contents ul li {
+        list-style: none;
+        margin: 10px 0;
+      }
+      .tab-contents ul li span {
+        color: orangered;
+        font-size: 14px;
+      }
+      .tab-contents {
+        display: none;
+      }
+      .tab-contents.active-tab {
+        display: block;
+      }
+      /* -------------------------------------services---------------------------------------------- */
+      #services {
+        padding: 30px 0;
+      }
+      .services-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 40px;
+        margin-top: 50px;
+      }
+      .services-list div {
+        background: #262626;
+        padding: 40px;
+        font-size: 13px;
+        font-weight: 300;
+        border-radius: 10px;
+        transition: background 0.5s, transform 0.5s;
+      }
+      .services-list div h2 {
+        font-size: 30px;
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+      .services-list div a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 12px;
+        margin-top: 20px;
+        display: inline-block;
+      }
+      .services-list div:hover {
+        background: orangered;
+        transform: translateY(-10px);
+      }
+      /* ----------------------------------portfolio--------------------------- */
+      #portfolio {
+        padding: 50px 0;
+      }
+      .work-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 40px;
+        margin-top: 50px;
+      }
+      .work {
+        border-radius: 10px;
+        position: relative;
+        overflow: hidden;
+      }
+      .work img {
+        width: 100%;
+        border-radius: 10px;
+        display: block;
+        transition: transform 0.5s;
+      }
+      .layer {
+        width: 100%;
+        height: 0;
+        background: linear-gradient(rgb(0, 0, 0, 0.6), orangered);
+        border-radius: 10px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 40px;
+        text-align: center;
+        transition: height 0.5s;
+      }
+      .layer h3 {
+        font-weight: 500;
+        margin-bottom: 20px;
+      }
+      .layer a {
+        margin-top: 20px;
+        color: orangered;
+        text-decoration: none;
+        font-size: 18px;
+        line-height: 60px;
+        background: #fff;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        text-align: center;
+      }
+      .work:hover img {
+        transform: scale(1.1);
+      }
+      .work:hover .layer {
+        height: 100%;
+      }
+      .btn {
+        display: block;
+        margin: 50px auto;
+        width: fit-content;
+        border: 1px solid orangered;
+        padding: 14px 50px;
+        border-radius: 6px;
+        text-decoration: none;
+        color: #fff;
+      }
+      .btn:hover {
+        background-color: orangered;
+      }
+      /* ---------------------------------contact--------------------------------- */
+      .contact-left {
+        flex-basis: 35%;
+      }
+      .contact-right {
+        flex-basis: 60%;
+      }
+      .contact-left p {
+        margin-top: 30px;
+      }
+      .contact-left p i {
+        color: orangered;
+        margin-right: 15px;
+        font-size: 25px;
+      }
+      .social-icons {
+        margin-top: 30px;
+      }
+      .social-icons a {
+        text-decoration: none;
+        font-size: 30px;
+        margin-right: 15px;
+        color: #ababab;
+        display: inline-block;
+        transition: transform 0.5s;
+      }
+      .social-icons a:hover {
+        color: orangered;
+        transform: translateY(-5px);
+      }
+      .btn.btn2 {
+        display: inline-block;
+        background-color: orangered;
+      }
+      .contact-right form {
+        width: 100%;
+      }
+      form input,
+      form textarea {
+        width: 100%;
+        border: 0;
+        outline: none;
+        background-color: #262626;
+        padding: 15px;
+        margin: 15px 0;
+        color: #fff;
+        font-size: 18px;
+        border-radius: 6px;
+      }
+      form .btn2 {
+        padding: 14px 60px;
+        font-size: 18px;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+      .copyright {
+        width: 100%;
+        text-align: center;
+        padding: 25px 0;
+        background: #262626;
+        font-weight: 300;
+        margin-top: 20px;
+      }
+      nav .fas {
+        display: none;
+      }
+
+      /* ------------------------------CSS for small screens------------------------ */
+      @media only screen and (max-width: 600px) {
+        #header {
+          background-image: url(image/pic_files/picture12.jpeg);
+        }
+        .header-text {
+          margin-top: 100%;
+          font-size: 16px;
+        }
+        .header-text h1 {
+          font-size: 30px;
+        }
+        nav .fas {
+          display: block;
+          font-size: 25px;
+        }
+        nav ul {
+          background: orangered;
+          position: fixed;
+          top: 0;
+          right: -200px;
+          width: 200px;
+          height: 100vh;
+          padding-top: 50px;
+          z-index: 2;
+          transition: right 0.5s;
+        }
+        nav ul li {
+          display: block;
+          margin: 25px;
+        }
+        nav ul .fas {
+          position: absolute;
+          top: 25px;
+          left: 25px;
+          cursor: pointer;
+        }
+        .sub-title {
+          font-size: 40px;
+        }
+        .about-col-1,
+        .about-col-2 {
+          flex-basis: 100%;
+        }
+        .about-col-1 {
+          margin-bottom: 30px;
+        }
+        .about-col-2 {
+          font-size: 14px;
+        }
+        .tab-links {
+          font-size: 16px;
+          margin-right: 20px;
+        }
+        .contact-left,
+        .contact-right {
+          flex-basis: 100%;
+        }
+        .copyright {
+          font-size: 14px;
+        }
+      }
+      #msg {
+        color: #61b752;
+        margin-top: -40px;
+        display: block;
+      }
+    </style>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/d5b92132f2.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="contain">
+      <nav>
+        <img src="image/pic_files/picture8.jpeg" class="logo" />
+        <ul id="sidemenu">
+          <li><a href="#header">Home</a></li>
+          <li><a href="#adout">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <i class="fas fa-times" onclick="closemenu()"></i>
+        </ul>
+        <i class="fas fa-bars" onclick="openmenu()"></i>
+      </nav>
+    </div>
+
+    <div id="header">
+      <div class="container">
+        <!-- <div style="font-style: italic; color: white; padding: 0">
+          <h1>NOSHIN ATIYA</h1>
+        </div> -->
+
+        <div class="header-text">
+          <p>Student...</p>
+          <h3>
+            Hi, I'm <span> Noshin Atiya</span> <br />From Jahangirnagar
+            University
+          </h3>
+        </div>
+      </div>
+    </div>
+    <!-- --------------------------------------------about------------------------------------------- -->
+    <div id="about">
+      <div class="container">
+        <div class="row">
+          <div class="about-col-1">
+            <img src="image/pic_files/picture10.jpeg" alt="" />
+          </div>
+          <div class="about-col-2">
+            <h3 class="sub-title">About Me</h3>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid,
+              ipsa placeat, odio deleniti omnis perferendis provident pariatur
+              ipsam accusantium labore, sint nobis. Hic ipsam tempora cum earum
+              voluptatum, quaerat placeat, perferendis nisi vitae pariatur
+              reiciendis, autem velit aliquam quia esse possimus recusandae
+              expedita animi neque quod! Perferendis facilis praesentium
+              impedit.
+            </p>
+            <div class="tab-titles">
+              <p class="tab-links active-link" onclick="opentab('skills')">
+                Skills
+              </p>
+              <p class="tab-links" onclick="opentab('experience')">
+                Experience
+              </p>
+              <p class="tab-links" onclick="opentab('education')">Education</p>
+            </div>
+            <div class="tab-contents active-tab" id="skills">
+              <ul>
+                <li><span>Student</span><br />from IIT</li>
+                <li><span>Web Development</span><br />Web app Development</li>
+                <li>
+                  <span>App Development</span><br />Building Android/ios apps
+                </li>
+              </ul>
+            </div>
+            <div class="tab-contents" id="experience">
+              <ul>
+                <li><span>Student</span><br />from IIT</li>
+                <li><span>Web Development</span><br />Web app Development</li>
+                <li>
+                  <span>App Development</span><br />Building Android/ios apps
+                </li>
+              </ul>
+            </div>
+            <div class="tab-contents" id="education">
+              <ul>
+                <li><span>BSc</span><br />IIT,Jahangirnagar University</li>
+                <li><span>HSC</span><br />Babuganj Degree College</li>
+                <li><span>SSC</span><br />Moddoh Bhuterdia High School</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- -----------------------------------services--------------------------------------------------- -->
+    <div id="services">
+      <div class="container">
+        <h1 class="sub-title">My Services</h1>
+        <div class="services-list">
+          <div>
+            <h2>Web Design</h2>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus,
+              minima? Consequatur non optio esse, aliquam quos placeat et vitae
+              minima!
+            </p>
+            <a href="#">Learn more</a>
+          </div>
+          <div>
+            <h2>UI/UX Design</h2>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus,
+              minima? Consequatur non optio esse, aliquam quos placeat et vitae
+              minima!
+            </p>
+            <a href="#">Learn more</a>
+          </div>
+          <div>
+            <h2>App Design</h2>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus,
+              minima? Consequatur non optio esse, aliquam quos placeat et vitae
+              minima!
+            </p>
+            <a href="#">Learn more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ----------------------------------------------portfolio------------------------------------------ -->
+    <div id="portfolio">
+      <div class="container">
+        <h1 class="sub-title">My Work</h1>
+        <div class="work-list">
+          <div class="work">
+            <img src="image/pic_files/images.jpeg" alt="" />
+            <div class="layer">
+              <h3>Social Media App</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
+                veniam voluptatum quae doloremque, aut nisi.
+              </p>
+              <!-- <a href="#"><i class="fa-sharp fa-solid fa-arrow-up-right-from-square"></i></a> -->
+            </div>
+          </div>
+          <div class="work">
+            <img src="image/pic_files/work-03.jpeg" alt="" />
+            <div class="layer">
+              <h3>Social Media App</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
+                veniam voluptatum quae doloremque, aut nisi.
+              </p>
+            </div>
+          </div>
+          <div class="work">
+            <img src="image/pic_files/work-07.jpg" alt="" />
+            <div class="layer">
+              <h3>Social Media App</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
+                veniam voluptatum quae doloremque, aut nisi.
+              </p>
+            </div>
+          </div>
+        </div>
+        <a href="#" class="btn">See more</a>
+      </div>
+    </div>
+    <!----------------------------------------------------contact--------------------------------------------- -->
+    <div id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="contact-left">
+            <h1 class="sub-title">Contact Me</h1>
+            <p>noshin@gmail.com</p>
+            <p>01928852099</p>
+            <div class="social-icons">
+              <a href=""><i class="fa-brands fa-facebook"></i></a>
+              <a href="#"><i class="fa-brands fa-snapchat"></i></a>
+              <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+              <a href="#"></a>
+            </div>
+            <a
+              href="http://127.0.0.1:5500/personal_portfolio/My%20CV.html"
+              class="btn btn2"
+              >My CV</a
+            >
+          </div>
+          <div class="contact-right">
+            <form>
+              <input type="text" name="Name" placeholder="Your Name" required />
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                required
+              />
+              <textarea
+                name="Message"
+                rows="10"
+                placeholder="Your Message"
+              ></textarea>
+              <a href="image/pic_files/Ending.jpeg" class="btn btn2">submit</a>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>copyright &copy; noshin. Made with &hearts; by Easy Tutorial</p>
+      </div>
+    </div>
+  </body>
+</html>
